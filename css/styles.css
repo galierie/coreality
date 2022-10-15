@@ -1,0 +1,397 @@
+/* Defaults */
+:root {
+    /* Fonts */
+    --title-font: "Chelsea Market";
+    --body-font: "Baloo Chettan 2";
+
+    /* Color Palette */
+    --primary: #003249;
+    --secondary: #007EA7;
+    --tertiary: #FED766;
+    --light: #FBF9FF;
+}
+
+body {
+	margin: 0;
+    min-height: 1px;
+
+    background-image: url("../img/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: var(--body-font), serif;
+    font-size: 1rem;
+	color: var(--light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font), sans-serif;
+    font-weight: bold;
+}
+h1 {
+    font-size: 3.5rem;
+}
+h2 {
+    font-size: 2.75rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+h5 {
+    font-size: 1.25rem;
+}
+h6 {
+    font-size: 1rem;
+}
+
+/* General Components */
+nav, footer {
+    height: 11vh;
+    width: 100%;
+	background-color: var(--primary);
+	display: flex;
+    align-items: center;
+}
+
+nav a, footer a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--light);
+    z-index: 100;
+}
+
+nav > * {
+    margin: 0 1.5rem;
+}
+
+#logo h4 {
+    margin: 0;
+}
+
+#sections {
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+}
+
+#sections a {
+	display: block; 
+	text-align: center;
+	background-color: #003249;
+    padding: 0.5rem;
+	transition: 0.8s;
+}
+
+#sections a:hover {
+	opacity: 0.5;
+}
+
+#ham-menu {
+    display: none;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 1000px){
+    #sections {
+        display: none;
+        margin: 0;
+        position: absolute;
+        top: 11vh;
+        right: 0;
+    }
+
+    #sections a {
+        text-align: left;
+        padding: 1rem 1.5rem;
+    }
+
+    #ham-menu {
+        display: block;
+    }
+}
+
+/* Footer */
+footer {
+    justify-content: flex-end;
+}
+
+footer a {
+    margin: 0 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Header */
+header {
+    height: 89vh;
+	margin-top: 11vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    width: 80vw;
+}
+
+header div > * {
+	text-align: center;
+    margin: 0;
+}
+
+#web-title {
+	font-size: 10vw;
+}
+
+#sub-title {
+    font-size: 3.75vw;
+}
+
+/* Main Sections */
+#template {
+    display: none;
+}
+
+main section {
+	border: solid var(--light);
+    border-width: 1px 0;
+    padding: 15vh 7.5vw;
+}
+
+main section:nth-child(odd) {
+    background-color: var(--primary);
+}
+
+.sec-title {
+    text-align: center;
+}
+
+/* Info Sections */
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5vw;
+    row-gap: 2.5vh;
+}
+
+main section:nth-child(odd) .photo-con,
+main section:nth-child(odd) .title-card {
+    background-color: var(--secondary);
+}
+main section:nth-child(even) .photo-con,
+main section:nth-child(even) .title-card {
+    background-color: var(--primary);
+}
+
+.photo-con {
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo {
+    width: 100%;
+}
+
+.title-card {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: 0.8s;
+}
+.photo-con:hover .title-card {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.title-card h6 {
+    margin: 0;
+}
+
+/* Modals */
+.info-modal {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+}
+
+.info-con {
+    height: 80%;
+    width: 80%;
+    background-color: var(--tertiary);
+    color: #000000;
+    border-radius: 10px;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    overflow-y: auto;
+}
+.info-con::-webkit-scrollbar {
+    width: 0.25rem;
+}
+.info-con::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background-color: var(--primary);
+}
+.info-con::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: var(--secondary);
+}
+
+.info-photo {
+    width: 100%;
+}
+
+.info-text {
+    padding: 1.5vh 7.5vw 2.5vh;
+}
+
+.info-text > * {
+    margin: 0;
+}
+
+.info-text h5 {
+    text-align: center;
+}
+
+.info-text p {
+    margin: 0;
+}
+
+.info {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info li {
+    display: flex;
+}
+
+.controls, .controls > * {
+    position: fixed;
+}
+
+.controls span {
+    transition: 0.8s;
+}
+.controls span:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.controls div {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
+
+.arrow {
+    font-size: 7.5rem !important;
+}
+
+.exit {
+    font-size: 2.5rem !important;
+    top: 7.5%;
+    right: 7.5%;
+    z-index: 102;
+}
+
+@media screen and (max-width: 800px){
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 525px){
+    /* Gallery */
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    /* Modals */
+    .info-con {
+        height: 90%;
+        width: 100%;
+        border-radius: 0;
+        top: 0;
+        left: 0;
+    }
+
+    .controls {
+        height: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        bottom: 0;
+    }
+
+    .controls > * {
+        position: static;
+    }
+
+    .arrow {
+        font-size: 4.5rem !important;
+    }
+}
+
+/* About */
+#devs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5vw;
+}
+
+.dev-img-con {
+    text-align: center;
+}
+
+.dev-img-con img {
+    height: 25vh;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 500px){
+    #devs {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 10vh;
+    }
+}
